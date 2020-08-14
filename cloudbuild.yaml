@@ -1,0 +1,17 @@
+steps:
+
+
+- id: "Rodando go test"
+  name: "gcr.io/cloud-builders/go"
+  dir: 'src/desafio_ci'
+  env: ["GOPATH=."]
+  args: ['test']
+
+
+- id: "Rodando o programa"
+  name: "gcr.io/cloud-builders/go"
+  dir: 'src/desafio_ci'
+  env: ["GOPATH=."]
+  args: ['run','soma.go']
+
+
