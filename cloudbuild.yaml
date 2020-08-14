@@ -1,6 +1,5 @@
 steps:
 
-
 - id: "Rodando go test"
   name: "gcr.io/cloud-builders/go"
   dir: 'src/desafio_ci'
@@ -15,3 +14,5 @@ steps:
   args: ['run','soma.go']
 
 
+images:
+- 'gcr.io/$PROJECT_ID/desafio-ci:latest'
