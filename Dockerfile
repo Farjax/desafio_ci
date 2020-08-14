@@ -1,14 +1,13 @@
 FROM golang:1.12-alpine as builder
 
-WORKDIR /go/src/desafio_ci
+WORKDIR /desafio/src/desafio_ci
 
 COPY . .
+ 
+RUN go build  src/desafio_ci/soma.go
 
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" soma.go
-RUN pwd
-RUN ls -la
+FROM scratch
+WORKDIR /desafio/src/desafio_ci
+COPY --from=builder /desafio/src/desafio_ci/soma .
 
-# FROM scratch
-# WORKDIR /go/src/desafio_ci
-# COPY --from=builder /go/src/desafio_ci/soma .
-# CMD ["./soma"]
+CMD ["./soma"]
