@@ -8,5 +8,5 @@ func soma(x int, y int) int {
 
 func main() {
 	fmt.Println(soma(5, 5))
-	fmt.Println("---Fim do Codigo---")
+	fmt.Println("+---Fim do Codigo---+")
 }
